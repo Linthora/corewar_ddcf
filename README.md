@@ -5,7 +5,7 @@ Corewar implementation in JAVA with 3 collegues
 
 /!\ The repport (in french) of this project isn't satisfying and would need to be partly rewritten.
 
-################################################################
+#
 
 Pour compiler il suffit d'exécuter "ant" dans le répértoire racine du projet. Si c'est la première compilation, il faut préalablement avoir exécuté "ant init".
 
