@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"benchmark"},{"l":"corewar"},{"l":"genetic"},{"l":"interfaces"},{"l":"test"},{"l":"test.corewar"},{"l":"test.genetic"}]

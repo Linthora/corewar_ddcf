@@ -1,0 +1,48 @@
+<project name="Corewar" default="compile" basedir=".">
+    <property name="projet.sources.dir" value="src"/>
+    <property name="projet.bin.dir" value="build"/>
+    <!--<property name="projet.lib.dir" value="lib"/> -->
+    <path id="projet.classpath">
+        <pathelement location="${projet.bin.dir}"/>
+    </path>
+    <target name="compile" description="Compilation des classes">
+        <javac srcdir="${projet.sources.dir}" destdir="${projet.bin.dir}" debug="on" optimize="off" deprecation="on" includeantruntime="false">
+            <classpath refid="projet.classpath"/>
+        </javac>
+    </target>
+    <target name="init">
+        <mkdir dir="${projet.bin.dir}"/>
+    </target>
+    <target name="run" description="execution" depends="compile">
+        <java classname="corewar.Main" fork="false">
+            <arg value="progs/custom.red"/>
+            <arg value="progs/test_paper.red"/>
+            <classpath refid="projet.classpath"/>
+        </java>
+    </target>
+    <target name="runWindow" description="execution" depends="compile">
+        <java classname="interfaces.CorewarWindow" fork="false">
+            <arg value="progs/custom.red"/>
+            <arg value="progs/test_paper.red"/>
+            <classpath refid="projet.classpath"/>
+        </java>
+    </target>
+    <target name="test" description="run tests" depends="compile">
+        <java classname="test.Main" fork="false">
+            <classpath refid="projet.classpath"/>
+        </java>
+    </target>
+    <target name="checker" description="checking if .red programs in file progs have an accepted synthax">
+        <exec executable="sh">
+                <arg line="-c 'java -cp build corewar.Checker progs/*.red'" />
+        </exec>
+    </target>
+    <target name="doc">
+        <javadoc sourcepath="src" destdir="doc">
+        <fileset dir="src" defaultexcludes="yes"/>
+        </javadoc>
+    </target>
+    <target name="jar" depends="compile">
+        <jar jarfile="corewar.jar" basedir="${projet.bin.dir}" manifest="${basedir}/MANIFEST.MF"/>
+    </target>
+</project>
