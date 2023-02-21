@@ -1,6 +1,8 @@
 # corewar_ddcf
 Corewar implementation in JAVA with 3 collegues
 
+/!\ Important note: Currently studying language theory after this project and we would surely do this differently.
+
 /!\ There might be issues with the JS script engine used in Parser
 
 /!\ The repport (in french) of this project isn't satisfying and would need to be partly rewritten.
